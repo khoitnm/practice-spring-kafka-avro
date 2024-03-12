@@ -1,0 +1,55 @@
+version: '3.7'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka01
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+      - "9092:9092"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  # creates two kafka topics "users-v1" which is the "real" kafka instance that will be used to populate cognitive search or any other services
+  # and "iam-users" which is the topic that will be used to mimic the IAM EventHub service
+  init-kafka:
+    image: confluentinc/cp-kafka:6.1.1
+    depends_on:
+      - kafka
+    entrypoint: [ '/bin/sh', '-c' ]
+    command: |
+      "
+      # blocks until kafka is reachable
+      kafka-topics --bootstrap-server kafka:29092 --list
+
+      echo -e 'Creating kafka topics'
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --partitions 3 --topic topic-01
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --partitions 3 --topic topic-02
+
+      echo -e 'Successfully created the following topics:'
+      kafka-topics --bootstrap-server kafka:29092 --list
+      "
+
+  schema-registry:
+    container_name: schema-registry
+    image: apicurio/apicurio-registry-kafkasql:2.5.8.Final
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: 'kafka:29092'
+    ports:
+      - "8081:8080"
+
