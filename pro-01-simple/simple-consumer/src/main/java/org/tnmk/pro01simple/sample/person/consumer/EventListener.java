@@ -14,7 +14,7 @@ public class EventListener {
 
     private static final Logger logger = LoggerFactory.getLogger(EventListener.class);
 
-    @KafkaListener(groupId = "personAutoAckGroup", topics = TopicConstants.TOPIC_01)
+    @KafkaListener(groupId = "pro01simple_topic01", topics = TopicConstants.TOPIC_01)
     public void receive(@Payload String message, @Headers MessageHeaders headers) {
         logReceiveData(message, headers);
     }

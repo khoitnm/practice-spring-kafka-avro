@@ -6,15 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Service
-public class PersonProducer {
+public class EventProducer {
 
-    private static final Logger logger = LoggerFactory.getLogger(PersonProducer.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventProducer.class);
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
