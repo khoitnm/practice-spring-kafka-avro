@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class EventListener {
 
     private static final Logger logger = LoggerFactory.getLogger(EventListener.class);
+    private static final String CUSTOM_MESSAGE_ID = "customMessageId";
 
     @KafkaListener(groupId = "pro01simple_topic01", topics = TopicConstants.TOPIC_01)
     public void receive(@Payload String message, @Headers MessageHeaders headers) {
@@ -21,6 +22,34 @@ public class EventListener {
 
     private void logReceiveData(String message, MessageHeaders headers) {
         Long offset = (Long) headers.get(KafkaHeaders.OFFSET);
-        logger.info("[KAFKA LISTENER]received record[{}]='{}'", offset, message);
+        String correlationId = (String) headers.get(KafkaHeaders.CORRELATION_ID);
+        String key = (String) headers.get(KafkaHeaders.RECEIVED_KEY);
+        String messageId = (String) headers.get(MessageHeaders.ID);
+        String customMessageId = (String) headers.get(CUSTOM_MESSAGE_ID);
+        logger.info("""
+                [KAFKA LISTENER] '{}',
+                    offset: {},
+                    id: {},
+                    customMessageId: {}
+                    key: {},
+                    correlationId: {},
+                    ----------------------------
+                {}
+                """,
+            message,
+            offset,
+            messageId,
+            customMessageId,
+            correlationId,
+            key,
+            formatAllHeaders(headers));
+    }
+
+    private String formatAllHeaders(MessageHeaders headers) {
+        StringBuilder sb = new StringBuilder();
+        for (String key : headers.keySet()) {
+            sb.append("\t").append(key).append(": ").append(headers.get(key)).append("\n");
+        }
+        return sb.toString();
     }
 }
