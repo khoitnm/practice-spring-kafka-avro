@@ -24,10 +24,15 @@
         </dependency>
 
         <!-- AVRO: Event Schema -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.confluent</groupId>-->
+        <!--            <artifactId>kafka-avro-serializer</artifactId>-->
+        <!--            <version>${kafka-avro-serializer.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
-            <groupId>io.confluent</groupId>
-            <artifactId>kafka-avro-serializer</artifactId>
-            <version>${kafka-avro-serializer.version}</version>
+            <groupId>io.apicurio</groupId>
+            <artifactId>apicurio-registry-serdes-avro-serde</artifactId>
+            <version>${apicurio-registry-serdes-avro-serde.version}</version>
         </dependency>
 
         <!--Test-->
@@ -61,22 +66,22 @@
             <plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
-<!--                <version>${avro-maven-plugin.version}</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>avro-schemas</id>-->
-<!--                        <phase>generate-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>schema</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <sourceDirectory>${project.basedir}/../avro</sourceDirectory>-->
-<!--                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>-->
-<!--                    <stringType>String</stringType>-->
-<!--                    <fieldVisibility>private</fieldVisibility>-->
-<!--                </configuration>-->
+                <!--                <version>${avro-maven-plugin.version}</version>-->
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <id>avro-schemas</id>-->
+                <!--                        <phase>generate-sources</phase>-->
+                <!--                        <goals>-->
+                <!--                            <goal>schema</goal>-->
+                <!--                        </goals>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
+                <!--                <configuration>-->
+                <!--                    <sourceDirectory>${project.basedir}/../avro</sourceDirectory>-->
+                <!--                    <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>-->
+                <!--                    <stringType>String</stringType>-->
+                <!--                    <fieldVisibility>private</fieldVisibility>-->
+                <!--                </configuration>-->
             </plugin>
         </plugins>
     </build>

@@ -23,7 +23,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring-boot.version>3.2.3</spring-boot.version>
-        <kafka-avro-serializer.version>6.2.0</kafka-avro-serializer.version>
+        <!--        <kafka-avro-serializer.version>6.2.0</kafka-avro-serializer.version>-->
+        <apicurio-registry-serdes-avro-serde.version>2.5.9.Final</apicurio-registry-serdes-avro-serde.version>
 
         <!-- Maven plugins versions -->
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>

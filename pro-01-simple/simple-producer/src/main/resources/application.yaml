@@ -8,9 +8,16 @@ spring:
     bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      # value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value.serializer: io.apicurio.registry.serde.avro.AvroKafkaSerializer
       properties:
         # View in docker-compose-02-kafka-with-control-center.yml
-        schema.registry.url: http://localhost:8081
+        #        schema.registry.url: http://localhost:8081
         allow.auto.create.topics: false
-
+        apicurio:
+          registry:
+            url: http://localhost:8081
+            # artifact.group-id: ${SCHEMA_REGISTRY_GROUP_ID}
+            # artifact.version: ${SCHEMA_REGISTRY_ARTIFACT_VERSION}
+            # how long to cache artifacts, in ms. Setting to 10 minutes.
+            check-period-ms: 600000
