@@ -1,4 +1,4 @@
-package org.tnmk.pro01simple.sample.person.producer;
+package org.tnmk.pro_01_simple.producer.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

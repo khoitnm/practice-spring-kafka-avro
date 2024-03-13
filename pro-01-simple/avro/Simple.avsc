@@ -1,0 +1,25 @@
+{
+  "namespace": "org.tnmk.pro_01_simple",
+  "type": "record",
+  "name": "Simple",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "type": [
+        "int",
+        "null"
+      ]
+    },
+    {
+      "name": "favorite_color",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-package org.tnmk.pro01simple.sample.person.consumer;
+package org.tnmk.pro_01_simple.consumer.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
