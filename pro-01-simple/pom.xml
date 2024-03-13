@@ -27,7 +27,12 @@
 
         <!-- Maven plugins versions -->
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
-        <avro-maven-plugin.version>1.9.2</avro-maven-plugin.version>
+
+        <!--
+        When using 1.11.0 - 1.11.3, I got compile error with generated Java file from Avro,
+        So I have to use older version
+        -->
+        <avro-maven-plugin.version>1.10.2</avro-maven-plugin.version>
     </properties>
 
     <build>
