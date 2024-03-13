@@ -1,5 +1,22 @@
 In this sample, we only send string event, not Avro object event.
 
+# Manual Test:
+
+## Start Kafka
+
+Run this file in terminal:
+[practice-spring-kafka-avro\kafka-server\start-01.bat](..\kafka-server\start-01.bat)
+
+## Publish event
+
+Trigger this method to publishing an event.
+[org.tnmk.pro_01_simple.producer.EventPublisherApplication](.\simple-producer\src\test\java\org\tnmk\pro_01_simple\producer\EventPublisherApplication.java)
+.publishEvent()
+
+## Listen to event
+
+Start [Pro01SimpleConsumerApplication.java](\simple-consumer\src\main\java\org\tnmk\pro_01_simple\consumer\Pro01SimpleConsumerApplication.java)
+
 # Note 1 (2024/03)
 
 When using `io.confluent:kafka-avro-serializer`, you have to use Confluent Schema Registry.
