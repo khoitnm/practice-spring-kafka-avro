@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "namespace": "org.tnmk.pro_01_simple",
+  "name": "Parent",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "children",
+      "type": {
+        "type": "array",
+        "items": {
+          "name":"Child",
+          "namespace": "org.tnmk.pro_01_simple",
+          "type":"record",
+          "fields":[
+            {"name":"name", "type":"string"}
+          ]
+        }
+      }
+    }
+  ]
+}

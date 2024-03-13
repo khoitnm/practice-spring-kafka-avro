@@ -1,0 +1,1 @@
+docker-compose -f ./docker-compose-02-kafka-with-control-center.yml up -d

@@ -23,23 +23,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring-boot.version>3.2.3</spring-boot.version>
+        <kafka-avro-serializer.version>6.2.0</kafka-avro-serializer.version>
 
         <!-- Maven plugins versions -->
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <avro-maven-plugin.version>1.11.3</avro-maven-plugin.version>
     </properties>
-
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
@@ -57,7 +46,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
+
         </plugins>
     </build>
 </project>
