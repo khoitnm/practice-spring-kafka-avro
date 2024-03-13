@@ -1,1 +1,0 @@
-docker-compose -f docker-compose-01-kafka-with-apicurio.yml down -v

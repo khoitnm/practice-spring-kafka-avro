@@ -5,7 +5,7 @@ In this sample, we only send string event, not Avro object event.
 ## Start Kafka
 
 Run this file in terminal:
-[practice-spring-kafka-avro\kafka-server\start-01.bat](..\kafka-server\start-01.bat)
+[practice-spring-kafka-avro/kafka-server/01_kafka-with-apicurio/start-kafka.bat](../kafka-server/01_kafka-with-apicurio/start-kafka.bat)
 
 ## Publish event
 

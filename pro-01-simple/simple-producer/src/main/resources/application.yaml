@@ -11,7 +11,7 @@ spring:
       # value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       value.serializer: io.apicurio.registry.serde.avro.AvroKafkaSerializer
       properties:
-        # View in docker-compose-02-kafka-with-control-center.yml
+        # View in docker-compose-kafka-with-confluent.yml
         #        schema.registry.url: http://localhost:8081
         allow.auto.create.topics: false
         apicurio:

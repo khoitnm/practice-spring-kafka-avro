@@ -1,0 +1,1 @@
+docker-compose -f ./docker-compose-kafka-with-apicurio.yml up -d

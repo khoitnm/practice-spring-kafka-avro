@@ -1,0 +1,1 @@
+docker-compose -f ./docker-compose-kafka-with-confluent.yml up -d
