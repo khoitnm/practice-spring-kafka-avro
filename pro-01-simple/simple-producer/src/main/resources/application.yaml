@@ -9,5 +9,8 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-
+      properties:
+        # View in docker-compose-02-kafka-with-control-center.yml
+        schema.registry.url: http://localhost:8081
+        allow.auto.create.topics: false
 

@@ -1,6 +1,5 @@
-# Guideline
-https://www.confluent.io/blog/apache-kafka-spring-boot-application
+# Note 1 (2024/03)
 
-#Trouble shoot
-Error when running `mvn clean install`: `invalid release target 11`
-Solution: recheck JAVA_HOME is pointing to jdk 11 (may need to restart IntelliJ/computer after updating) 
+When using `io.confluent:kafka-avro-serializer`, you have to use Schema Registry.
+
+
